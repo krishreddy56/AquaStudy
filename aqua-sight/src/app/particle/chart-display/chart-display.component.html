@@ -1,0 +1,23 @@
+
+<html>
+<mat-dialog-content class="mat-typography">
+<div>
+  <div>
+    <div style="display: block" *ngIf="barChartData.length>0">
+      <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [colors]="barChartColors"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</html>

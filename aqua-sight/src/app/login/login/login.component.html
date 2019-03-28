@@ -1,0 +1,39 @@
+<app-header></app-header>
+<html>
+  <div class="parent">
+  <div class="lg">
+    <br>
+    <mat-card-title>
+      Please login here
+    </mat-card-title>
+    <br><br><br><br>
+  <mat-card-actions>
+  <form [formGroup]="loginFrm" (ngSubmit)="onLoginSubmit()">
+      <div>
+          <mat-form-field>
+              <input matInput formControlName="username" placeholder="Username" type="text" required>
+              <mat-error *ngIf="this.loginFrm.get('username').hasError('required') && !this.loginFrm.get('username').hasError('email')">
+                Please enter valid username
+              </mat-error>
+          </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field>
+          <input matInput formControlName="password" placeholder=" Password" type="password" required>
+          <mat-error *ngIf="this.loginFrm.get('password').hasError('required')">
+            Please enter valid password
+          </mat-error>
+          </mat-form-field>
+      </div>
+      <br>
+      <div>
+        <a href="http://localhost:4200/menu"><b>Menu</b></a>
+        <button id="left" mat-raised-button type="submit" color ="primary">Login
+        </button>
+        <app-loader *ngIf="loading"></app-loader>
+      </div>
+  </form>
+  </mat-card-actions>
+</div>
+</div>
+  </html>

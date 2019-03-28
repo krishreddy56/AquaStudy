@@ -1,0 +1,38 @@
+<app-header></app-header>
+<html>
+  <div class="parent">
+  <div class="lg">
+    <br>
+    <mat-card-title>
+      Details Here!!
+    </mat-card-title>
+    <br><br><br><br>
+  <mat-card-actions>
+<form [formGroup]="detailsFrm" (ngSubmit)="addMeasure(detailsFrm.get('flow').value,detailsFrm.get('pressure').value)">
+    <div>
+        <mat-form-field>
+            <input matInput formControlName="flow" placeholder="Enter Flow" type="number" required>
+            <mat-error *ngIf="this.detailsFrm.get('flow').hasError('required') && !this.detailsFrm.get('flow').hasError('pattern')">
+                Please enter valid Flow
+              </mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+        <input matInput formControlName="pressure" placeholder="Enter Pressure" type="number" required>
+        <mat-error *ngIf="this.detailsFrm.get('pressure').hasError('required') && !this.detailsFrm.get('pressure').hasError('pattern')">
+            Please enter valid Pressure
+          </mat-error>
+        </mat-form-field>
+    </div>
+    <br>
+    <div>
+      <a href="http://localhost:4200/menu"><b>Menu</b></a>
+      <button class="left" mat-raised-button  type="submit" color= "primary">Save</button>
+      <app-loader *ngIf="loading"></app-loader>
+    </div>
+  </form>
+</mat-card-actions>
+</div>
+</div>
+</html>
